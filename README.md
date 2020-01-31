@@ -157,9 +157,15 @@ particular pair using very simple code. While the contest
 organizers found that Pepe was the winner, I found (and was
 able to check) that Spongebob received a slightly higher
 relative ranking than Pepe and dominated the other
-candidates. I am concerned that I may have a bug here, but I
-am currently at a loss as to how to further verify my code
-and results.
+candidates.
+
+I was concerned that I might have a bug here, but I was at a
+loss as to how to further verify my code and results. Thanks
+to Reddit user `/u/reonhato99` who pointed out that the
+margin of 329 I found for Spongebob over Pepe is consistent
+with the contest organizers' report of a 329-vote margin of
+Spongebob over Pepe in IRV. This greatly increased my
+confidence in this result.
 
 ### Conclusions
 
