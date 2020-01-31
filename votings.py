@@ -15,6 +15,23 @@ header = next(ballots)
 ballots = [[int(rank) - 1 for rank in ballot] for ballot in ballots]
 ncandidates = len(header)
 
+class FPTP(object):
+    """
+    First Past The Post. This is the one everyone hates.
+    """
+    def __init__(self):
+        votes = [0]*ncandidates
+        for ballot in ballots:
+            choice = min(range(ncandidates), key=lambda c: ballot[c])
+            votes[choice] += 1
+        self.votes = votes
+    
+    def report(self):
+        print("FPTP")
+        for candidate, count in enumerate(self.votes):
+            print("    {} {}".format(header[candidate], count))
+        print()
+
 class IRV(object):
     """
     Instant-Runoff Voting. Ties broken by dropping all trailing
@@ -182,6 +199,7 @@ class RPV(object):
         else:
             for winner in self.winners:
                 print("    Tied {}".format(header[winner]))
+        print()
 
 borda_systems = [
     ("BC", lambda rank: ncandidates - rank),
@@ -208,6 +226,7 @@ class Borda(object):
                 print("   ", name, self.votes[index][candidate])
             print()
 
+FPTP().report()
 IRV().report()
 Borda().report()
 RPV().report()

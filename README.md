@@ -72,16 +72,22 @@ My goals were to:
 * Produce implementations that followed reported standard
   practice for these systems.
 
+### First Past The Post
+
+This is the simplest system to implement, and the most hated
+by voting-system people. My implementation is about 15 lines
+of Python ("LOC", including blank lines and comments). Pepe
+is the clear winner.
+
 ### Instant Runoff Voting
 
 My implementation of Instant Runoff Voting (IRV) comprises
-about 65 lines of Python (including blank lines and
-comments). I follow the standard iterative procedure for
+about 65 LOC. I follow the standard iterative procedure for
 IRV, breaking ties at each stage by dropping all tied
 least-first-ranked candidates.
 
 I was able to reproduce exactly the reported IRV results
-with minimal difficulty.
+with minimal difficulty. Spongebob is the winner.
 
 ### Borda Count
 
