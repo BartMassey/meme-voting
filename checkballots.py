@@ -1,3 +1,6 @@
+# Check ballots for spoilage.
+# Bart Massey
+
 import csv
 import sys
 

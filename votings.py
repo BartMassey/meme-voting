@@ -1,3 +1,6 @@
+# Various voting methods
+# Bart Massey
+
 import csv
 import functools
 import sys

@@ -1,3 +1,6 @@
+# Check the relative ranking of two candidates.
+# Bart Massey
+
 import csv
 import sys
 
