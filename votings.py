@@ -75,9 +75,15 @@ class IRV(object):
             # Eliminate "trailing" candidates (those with
             # least first-rank).
             trail_votes = min(*firsts)
-            trailers = {candidate for candidate in range(ncandidates)
-                        if firsts[candidate] == trail_votes}
-            for trailer in trailers:
+            def find_trailer():
+                for candidate in range(len(headr)):
+                    if firsts[candidate] == trail_votes:
+                        return candidate
+                return None
+            while True:
+                trailer = find_trailer()
+                if trailer == None:
+                    break
                 self.log.append("    Eliminate {}".format(headr[trailer]))
                 for ballot in ballts:
                     trail_rank = ballot[trailer]
@@ -85,6 +91,7 @@ class IRV(object):
                         if ballot[candidate] > trail_rank:
                             ballot[candidate] -= 1
                     del ballot[trailer]
+                del firsts[trailer]
                 del headr[trailer]
 
         # All remaining candidates were eliminated in the
