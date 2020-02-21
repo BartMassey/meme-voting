@@ -120,6 +120,14 @@ I initially implemented four different Borda Count methods:
   a Power Series Borda Count variant in which the *r*-th
   ranked candidate gets weight *1/2^n*.
 
+I later implemented a fifth method specific to this
+election, in order to replicate the published results: see
+below.
+
+* Dowdall's Method with Auto Rounding is the Borda Count
+  method actually used in the election studied; it
+  inadvertently rounded the weights to two decimal places.
+
 This was definitely the simplest method: the total source
 for all variants was about 25 LOC of low complexity.
 
