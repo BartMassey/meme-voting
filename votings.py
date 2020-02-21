@@ -139,7 +139,9 @@ class RPV(object):
             def find(c1, c2):
                 if (c1, c2) in scores:
                     return scores[(c1, c2)]
-                return -scores[(c2, c1)]
+                if (c2, c1) in scores:
+                    return -scores[(c2, c1)]
+                return 0
 
             # Primary criterion: better pair.
             diff = scores[p2] - scores[p1]
@@ -149,9 +151,9 @@ class RPV(object):
             # Secondary criterion: better minority.
             w1, l1 = p1
             w2, l2 = p2
-            opw1 = find(w1, l2)
-            opw2 = find(w2, l1)
-            return scores[opw2] - scores[opw1]
+            s1 = find(w1, l2)
+            s2 = find(w2, l1)
+            return s2 - s1
 
         pairs = list(scores.keys())
         pairs.sort(key=functools.cmp_to_key(order))
